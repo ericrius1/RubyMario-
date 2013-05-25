@@ -1,0 +1,231 @@
+Hotkeys:
+Arrow keys - Moving screen
+Space - move 3x faster
+P - Object settings
+Q - Specjal Room Properties (if exists)
+W - Level settings
+G - Toggle grid
+C - Clone selected object
+Del - Delete selected object
+Backspace - Delete everything below arrow
+End - Clear room
+1,2,3 - Toggle layers visiblity (you can see its status in down-right corner of screen)
+Enter (Return) - Test level, needs to be saved first
+N M - Change music playing (preview in bottom-left corner)
+
+For counter objects:
+Left Shift - Change single
+Left Control - Change 50
+
+
+Interface
+At the left there is a toolbar. From up it has:
+-Level name (max 16 characters)
+-Level time (-1 is unlimited)
+-Level playability (if false, level will not appear in menu)
+-Buttons to place player and flags (if you placed secret flag, press Secret button to delete it)
+-Room width and height (max depend on what you chose)
+-Room background (name of the file from gfx/backgrounds)
+-Room music
+-Room weather
+-Darkness mark
+-Buttons to add, delete and switch rooms (max 10000)
+-List of tiles and objects
+-Manage buttons (if level with given name exists, you need to click "Save" twice)
+
+Interface objects
+Counters - Numbers with arrows to change value
+Buttons - To click
+Changers - Like buttons, but are changing
+Check - Squares with three colors: blue triangle is false value, green circle is positive, red cross is negative
+
+
+Tiles/objetcs
+Select object from level or list and press P or set button to edit its properties.
+Description of each object functions (some of them are not working):
+
+<<Tiles>>
+Block,Sand,Land,Cloud,Factory,Climb,Water,Mini,Bonus
+Tile objects, with same functions
+Mini tileset contains some missing bunus tiles
+Type: skin/shape of object
+?-Switch: when positive, object will exist only then given ?-switch is on, when negative it will dissappear
+?-Switch id: id of the ?-switch
+Layer: tile's layer. When background, it's a bit darker. ?-switcher foreground objects are solid. Water tiles are on background
+
+Pipe
+Red,green,blue: pipe's color
+Trans: transparency
+Rainbow: rainbow pipe will change color through HSV scale
+Flashing: pipe will change it's transparency
+
+Grass,Ground
+Skin: skin is shown out of settings window
+
+Castle
+Castle isn't splid on any layer
+Cover: castle's cover
+
+Ice
+Hold Left Control before selecting to place it at half-height
+
+Climb
+Hold Left Control or Left Shift to place at half-height/width
+
+<<Objects>>
+Bricks
+Type: skin
+Coins: coins which can be get. Bricks with coins can't be destroyed normally
+
+PowerUp Block
+Item: item
+Hidden: hidden block is non solid and can be reveale only by player from down
+
+On/Off Block
+Non switch block is non solid when off
+Red,green,blue: block's color. Switching changes block with the same color
+
+?-Switch
+Short/Long: time of ?-switch on
+Anchored: unable to carry when true
+Once: will disappear after use
+Still: will never off
+Trigger: triggers which will on when pressed and off when time up
+
+Door
+Place door warps on bottom-center
+Lock: door will need a key of given color
+
+Key
+Phantos: number of chasing phantos, which will try to kill you
+
+Object Block
+Can contain objects. POW, MOb and A-BOMB not working yet.
+
+Flag
+Saves player position
+
+Text block
+Text: Max 999 chars
+
+Flip block
+Flips: number of flips between hitting it
+
+Skull block
+Block way before defeat boss or complete rampage
+Id: id of boss/rampage which will affect it
+Exists: solid before fight
+
+Password Block
+Id: id of the password
+Index: index of the block's character in password
+Chars: chars available to set
+Password: triggers block's destroy
+
+Trigger switcher
+Switches between two triggers
+
+Light
+Type: block is abled to carry
+
+<<Enemies>>
+Koopa Troopa
+Smart: will turn back at edges
+Move value: jump height or tiles for flying
+
+Piranha Plant
+Type: 'still' can't be killed
+Delay: time stopped when up or down
+Attack: number of projectiles shoot at once
+
+Spiny
+Stone: will be impossible to kill by FireFlower
+
+Buzzy Beetle
+Ceiling: will fall above player
+
+Bowser
+Jumpness: height of jump
+Action freq: frequence of attacking
+All below are attacks, which can be turned off. Attacks with negative value are not working.
+
+Bullet Bill
+Type: flame is not working
+Spec: makes homing bullet
+Height: number of tiles below blaster
+Delay: time between shots
+Stand: not working
+Random: delay between shot is randomized (use "Delay" to change frequency)
+Attack: speed of bullet
+
+Rotor
+Radius: radius of rotatning in half-tiles
+Count: number of discs/chains rotating in equal distances
+Type: disc or firechain
+
+Podobo
+To set jump height, place it on selected height above lava or abyss
+Delay: delay between jumps
+
+Pokey
+Type: yellow can't be stomped
+Moving: frequency of move (or speed)
+Regen: delay between respawning parts
+
+Boo
+Skin: big and balloon not working
+AI: enemy behavior
+
+
+<<Specjal>>
+Level Properties (press W to set)
+Next: name of the next level from data/own_levels (without .mlv)
+Secret: name of the secret level
+Thumbnail: name of image from gfx/thumbnails (png, 160x120)
+Password: level password (to load level with password, in level name at top type 'name/password'
+Left: changes direction of exit flags to left
+
+Room specjal properties
+Liquid: type of liquid in rooom
+Liquid level: height of liquid in tiles
+Upper solid: prevents from crossing level above walls
+
+Warp
+Type: door warp will not work with closed doors
+Id: warps are making sites of the same ids, more than 2 same ids will be randomed
+Exit only: positive-not able to enter, negative-only able to enter
+Mini: need to be a ini Mario to enter
+
+Platform
+Platforms can be reached from down and you can stand on it
+Down: press DOWN+JUMP to take it off
+
+Trigger
+Can trigger specjal objects
+Width,Height: area to make it on, multiply by 8
+
+Rampage control
+Id: id of trigger to turn it on
+
+Enemy spawner
+Id: id of rampage
+Max: max of enemies at once
+Delay: time between spawning enemies
+Add enemy: select enemy to add it to spawner
+Delete enemy: deleties the last enemy
+
+Boss control
+Id: id of trigger
+Health: boss health
+Rampage: not working yet
+Finnish: level ends after winning
+
+Liquid Control
+Trigger id: id of trigger to run the control
+Type/Skin: settigns
+Level change: target level when "set" mode or number to add/subtract
+Change: type of change
+Change timing: when lowoer, changes faster
+
+Size control
+Type: value to change
