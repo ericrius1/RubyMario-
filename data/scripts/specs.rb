@@ -45,7 +45,7 @@ class SpecjalSet
 	end
 
 	def gravity
-		4
+		1
 	end
 
 	def liquid
