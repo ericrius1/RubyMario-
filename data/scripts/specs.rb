@@ -45,7 +45,7 @@ class SpecjalSet
 	end
 
 	def gravity
-		@props[2]
+		4
 	end
 
 	def liquid
